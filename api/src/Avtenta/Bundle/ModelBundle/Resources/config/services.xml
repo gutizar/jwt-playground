@@ -4,17 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="avtenta_model.example.class">Avtenta\Bundle\ModelBundle\Example</parameter>
+        <parameter key="avtenta_model.product.class">Avtenta\Bundle\ModelBundle\Document\Product</parameter>
+	<parameter key="avtenta_model.product.manager.class">Avtenta\Bundle\ModelBundle\Manager\ProductManager</parameter>
     </parameters>
 
     <services>
-        <service id="avtenta_model.example" class="%avtenta_model.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="avtenta_model.product.manager" class="%avtenta_model.product.manager.class%">
+            <argument type="service" id="doctrine.odm.mongodb.document_manager" />
+            <argument>%avtenta_model.product.class%</argument>
         </service>
     </services>
-    -->
 </container>

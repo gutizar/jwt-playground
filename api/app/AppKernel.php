@@ -18,6 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new Avtenta\Bundle\ModelBundle\AvtentaModelBundle(),
+            new Avtenta\Bundle\RestBundle\AvtentaRestBundle(),
+    	    new FOS\RestBundle\FOSRestBundle(),
+    	    new JMS\SerializerBundle\JMSSerializerBundle(),
+    	    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

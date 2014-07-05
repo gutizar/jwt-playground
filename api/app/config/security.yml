@@ -1,12 +1,50 @@
 security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
     providers:
-        in_memory:
-            memory: ~
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        default:
-            anonymous: ~
+        # default:
+        #    anonymous: ~
+
+        # Used to authenticate the user the first time using form_login
+        login:
+            pattern: ^/login
+            stateless: true
+            anonymous: true
+            form_login:
+                provider: fos_userbundle
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+                # csrf_provider: form.csrf_provider
+                require_previous_session: false
+                username_parameter: _username
+                password_parameter: _password
+                # Generate the jwt token and send it as 200 response body
+                success_handler: lexik_jwt_authentication.handler.authentication_success 
+                # Send a 401 response
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern: ^/rest
+            stateless: true
+
+            lexik_jwt:
+                authorization_header:
+                    enabled: true
+                    prefix: Bearer
+                query_parameter:
+                    enabled: true
+                    name: bearer
+                throw_exceptions: false
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/rest/*, roles: ROLE_USER }

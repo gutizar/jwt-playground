@@ -3,9 +3,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                     http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <document name="Avtenta\Bundle\ModelBundle\Document\Product" db="jwt" collection="products">
+    <document name="Avtenta\Bundle\ModelBundle\Document\User" db="jwt" collection="users">
         <field fieldName="id" id="true" />
-        <field fieldName="name" type="string" />
-        <field fieldName="price" type="float" />
     </document>
 </doctrine-mongo-mapping>

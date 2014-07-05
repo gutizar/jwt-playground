@@ -1,0 +1,5 @@
+avtenta_rest_product:
+    type: rest
+    prefix: /v1
+    resource: Avtenta\Bundle\RestBundle\Controller\ProductController
+    name_prefix:  rest_1_
