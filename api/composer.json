@@ -24,7 +24,8 @@
         "jms/serializer-bundle": "@dev",
         "nelmio/api-doc-bundle": "@dev",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "lexik/jwt-authentication-bundle": "v1.0.0"
+        "lexik/jwt-authentication-bundle": "v1.0.0",
+        "nelmio/cors-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
